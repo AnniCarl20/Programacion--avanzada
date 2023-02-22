@@ -1,0 +1,196 @@
+/******************************************************************************
+Annika Carl
+*******************************************/
+
+#include <iostream>
+#include <fstream>
+#include <stdlib.h>
+#include <string.h>
+using namespace std;
+
+
+void funcionArreglo();
+void funcionVocales ();
+void funcionMatriz();
+
+int main (){
+    
+    int opcion;
+    
+    cout << "Ingrese la opcion que desea: " <<endl;
+    cout << "1. Imprimir arreglo usando punteros: " <<endl; 
+    cout << "2. Arreglo de vocales: " << endl;
+    cout << "3. Llenado de matriz: " << endl; 
+    cin >> opcion; 
+    
+    switch (opcion){
+        
+        case 1: funcionArreglo();
+        break;
+        case 2: funcionVocales ();
+        break;
+        case 3: funcionMatriz();
+        break;
+        
+    
+    
+    return 0;
+    }
+}
+
+
+//Dado el arreglo de 5 elementos {10,20,30,45,55}, imprimir por pantalla cada elemento usando punteros.
+
+
+void funcionArreglo(){
+    
+    int arregloElementos [] = {10,20,30,45,55};
+    int *puntero; 
+    
+    cout << "Los valores son: " <<endl; 
+    
+    for (int i=0; i<5; i++){
+        puntero=&arregloElementos[i];
+        cout << "[" << *puntero << "]";
+    }
+    
+}
+
+
+//Dado dos arreglos de vocales array1 y array2, extraer la cantidad de vocales que se repiten entre los dos arreglos, usando punteros
+
+void funcionVocales (){
+    
+    int n1=0;
+    int n2=0;
+    int nNuevo=0;
+    char *puntero;
+    char vocales1 [100];
+    char vocales2 [100];
+    char nuevoArreglo [100];
+    int aux, frecuencia=0;
+    char vocalMasRepetida, temporal;
+    
+    cout << "Ingrese el tamanio del vector 1: ";
+    cin >> n1;
+    cout << "Ingrese las vocales vector 1: " <<endl; 
+    
+    puntero= &vocales1[0];
+	*(puntero+i);
+    for (int i=0; i<n1; i++){
+        cout << i+1 << ": ";
+        cin >> vocales1[i];
+    }
+	
+
+     
+    cout << "Ingrese el tamanio del vector 2: ";
+    cin >> n2;
+    cout << "Ingrese las vocales vector 2: " <<endl;
+    
+    for (int j=0; j<n2; j++){
+        cout << j+1 << ": ";
+        cin >> vocales2[i];
+    }
+    
+    nNuevo = n1+n2;
+    cout <<nNuevo;
+    
+    for (int i=0; i<n1; i++){
+        for (int k=0; k<nNuevo; k++){
+            nuevoArreglo[k] = vocales1[i];
+        }
+    }
+    
+    for (int k=n1+1; k<nNuevo; k++){
+        for (int j=0; j<n2; j++){
+            nuevoArreglo[k] = vocales2[j];
+        }
+    }
+    
+    
+    
+       for(int i=0; i<nNuevo; i++){
+		temporal = nuevoArreglo[i];
+		aux = 0;
+		for(int j=i; j<nNuevo; j++){
+			if(temporal == nuevoArreglo[j]){
+				aux++;
+			}
+		}
+		if(aux >= frecuencia){
+			frecuencia = aux;
+			vocalMasRepetida = temporal;
+		}
+	}
+	
+	cout<< "\nVocal mas repetida: " << vocalMasRepetida <<endl;
+	cout<< "Aparece " << frecuencia << " veces en el vector"<<endl;
+
+}
+
+
+// con apuntadores: 
+
+void funcionVocalesApuntadores (){
+
+int contador=0;
+int aux, frecuencia=0;
+char vocalMasRepetida, temporal;
+
+char *vocales1 []={a,e,e,i,o};
+char *vocales2 []={e,e,e,i,u};
+char nuevoArreglo[10];
+
+for (int i=0; i<5; i++){
+    for (int j=0; j<5; j++){
+    if (*(vocales1+i) == *(vocales2+j)){
+        contador ++
+        break;
+    }
+}
+
+	
+	cout<< "\nVocal mas repetida: " << vocalMasRepetida <<endl;
+	cout<< "Aparece " << contador << " veces en el vector"<<endl;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+//3.- Crear una función con memoria dinámica que llene una matriz, 
+//cuya dimensión es pedida por consola. El llenado debe ser con valores aleatorios y la matriz debe ser matriz cuadrada (NxN).
+void funcionMatriz(){
+    
+    int n=0;
+    int filas=0;
+    int columnas=0;
+    
+    cout << "Ingrese el tamanio de la matriz: " <<endl;
+    cin >> n;
+    filas=n;
+    columnas=n;
+
+    int matriz [filas][columnas];
+    
+    for (int i=0; i<filas; i++){
+        for (int j=0; j<columnas; j++){
+            matriz [i][j] = rand % 101; 
+            cout << matriz [i][j]
+        }
+    }
+}
+
+
+
+
+
+
