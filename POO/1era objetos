@@ -1,0 +1,42 @@
+/******************************
+Nombre: Annika Carl
+Fecha: 22/03/2023
+Tema: Objetos
+
+*********************************/
+
+
+#include <iostream>
+
+using namespace std;
+
+class Incognito{
+    public:
+    int funcion (int n1, int n2){
+        return n1+n2;
+    }
+    int funcion (int n1, int n2, int n3){
+        return n1+n2+n3;
+}
+};
+
+int main()
+{
+    int n1, n2, n3;
+    Incognito objeto;  //objeto va a tener todo lo que tiene incognito
+
+    cout<<"Ingrese 3 numeros: "<<endl;
+    cout<<"1: ";
+    cin >> n1;
+    cout<<"2: ";
+    cin >> n2;
+    cout<<"3: ";
+    cin >> n3;
+
+    cout << "\nSuma de los tres numeros: " << objeto.funcion(n1,n2,n3) <<endl;;
+    cout << "Suma de los dos primeros: " << objeto.funcion(n1,n2) <<endl;
+
+
+
+    return 0;
+}
